@@ -3,8 +3,10 @@ package com.example.zzz;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -13,32 +15,40 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
+    FirebaseAuth mAuth;
 
-    private FirebaseAuth mAuth;
-    private EditText signup_email, signup_pass, signup_confirmPass;
+    private EditText signin_email, signin_pass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        signup_email = findViewById(R.id.signup_email_id);
-        signup_pass = findViewById(R.id.signup_pass_id);
-        signup_confirmPass = findViewById(R.id.signup_confirmpass_id);
-
-        // Initialize Firebase Auth
+        signin_email = findViewById(R.id.signin_email_id);
+        signin_pass = findViewById(R.id.signin_pass_id);
         mAuth = FirebaseAuth.getInstance();
+        if(mAuth.getCurrentUser() != null  ){
+            startActivity(new Intent(getApplicationContext(), dashboard.class));
+            finish();
+        }
+
     }
 
-    public void signUp(View view) {
-        //Signup button press gare pachi yo function call hunxa
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly
 
-        String email = signup_email.getText().toString().trim();
-        String pass = signup_pass.getText().toString().trim();
-        String confirm_pass = signup_confirmPass.getText().toString().trim();
+    }
+
+    public void signIn(View view) {
+
+        String email = signin_email.getText().toString();
+        String pass = signin_pass.getText().toString();
 
         if (TextUtils.isEmpty(email)){
             Toast.makeText(this,"Email is empty", Toast.LENGTH_SHORT).show();
@@ -48,46 +58,39 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Password is Empty", Toast.LENGTH_SHORT).show();
             return;
         }
-        else if (TextUtils.isEmpty(confirm_pass)){
-            Toast.makeText(this, "Confirm password is Empty", Toast.LENGTH_SHORT).show();
-            return;
-        }
 
-        else if (pass.length() < 6){
-            Toast.makeText(this, "Password to Short", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        else if (pass.equals(confirm_pass)){
-            createAccount(email,pass);
-        }
         else{
-            Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show();
+            fbSignIn(email, pass);
             return;
         }
 
     }
 
-    private void createAccount(String email, String pass) {
-
-        //firrebase fo signup gare code rakhne thau
-        mAuth.createUserWithEmailAndPassword(email, pass)
+    public void fbSignIn(String email, String pass){
+        mAuth.signInWithEmailAndPassword(email, pass)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            Toast.makeText(MainActivity.this, "Sign up Sucess", Toast.LENGTH_SHORT).show();
-
+                                FirebaseUser user = mAuth.getCurrentUser();
+                            Toast.makeText(MainActivity.this, "Sign IN Succesfull", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(), dashboard.class));
+                            //updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
-                            Toast.makeText(MainActivity.this, "Sign up Fail", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                            //updateUI(null);
                         }
 
                         // ...
                     }
                 });
 
+    }
 
-
+    public void main_signup(View view) {
+        startActivity(new Intent(this, SignIn.class));
     }
 }
