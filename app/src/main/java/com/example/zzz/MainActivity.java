@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
         else{
             fbSignIn(email, pass);
+
             return;
         }
 
@@ -73,18 +74,17 @@ public class MainActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                                FirebaseUser user = mAuth.getCurrentUser();
-                            Toast.makeText(MainActivity.this, "Sign IN Succesfull", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), dashboard.class));
-                            //updateUI(user);
+
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            Toast.makeText(MainActivity.this, "Signin Sucessful", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(MainActivity.this, dashboard.class));
+
                         } else {
                             // If sign in fails, display a message to the user.
                             Toast.makeText(MainActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
-                            //updateUI(null);
+                            // ...
                         }
-
-                        // ...
                     }
                 });
 

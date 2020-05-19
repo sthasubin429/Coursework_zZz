@@ -36,10 +36,10 @@ public class dashboard extends AppCompatActivity {
         }
         else{
             Toast.makeText(dashboard.this, "Welcome to dashboard", Toast.LENGTH_SHORT).show();
-            String name = currentUser.getDisplayName().toString();
+           // String name = currentUser.getDisplayName().toString();
             String email = currentUser.getEmail().toString();
 
-            user_name.setText(name);
+            //user_name.setText(name);
             user_email.setText(email);
         }
     }
