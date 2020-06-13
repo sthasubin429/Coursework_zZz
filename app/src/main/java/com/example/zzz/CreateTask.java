@@ -91,19 +91,13 @@ public class CreateTask extends AppCompatActivity {
         String description = taskDescription.getText().toString();
         String priority = taskPriority.getSelectedItem().toString();
         String dueDate = taskDueDate.getText().toString();
+        String status = "To Do";
+        String assignedTo = "None";
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
-        Task taskObj = new Task(id, name,description, priority,dueDate, currentUser.getEmail());
+        Task taskObj = new Task(id, name,description, priority,dueDate, currentUser.getEmail(), status, assignedTo);
         taskdbReference.child(id).setValue(taskObj);
-
-//        taskdbReference.child(id).child("id").setValue(id);
-//        taskdbReference.child(id).child("name").setValue(name);
-//        taskdbReference.child(id).child("description").setValue(description);
-//        taskdbReference.child(id).child("priority").setValue(priority);
-//        taskdbReference.child(id).child("due_date").setValue(dueDate);
-//        taskdbReference.child(id).child("created_by").setValue(currentUser.getEmail().toString());
-
-
+        
         startActivity(new Intent(this, dashboard.class));
 
 

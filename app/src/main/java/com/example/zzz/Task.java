@@ -7,19 +7,23 @@ public class Task {
     String priority;
     String dueDate;
     String createdBy;
+    String status;
+    String assignedTo;
 
     public  Task(){
         //default
 
     }
 
-    public Task(String id, String name, String description, String priority, String dueDate, String createdBy) {
+    public Task(String id, String name, String description, String priority, String dueDate, String createdBy, String status, String assignedTo) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.priority = priority;
         this.dueDate = dueDate;
         this.createdBy = createdBy;
+        this.status = status;
+        this.assignedTo = assignedTo;
     }
 
     public String getId() {
@@ -68,5 +72,21 @@ public class Task {
 
     public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getAssignedTo() {
+        return assignedTo;
+    }
+
+    public void setAssignedTo(String assignedTo) {
+        this.assignedTo = assignedTo;
     }
 }

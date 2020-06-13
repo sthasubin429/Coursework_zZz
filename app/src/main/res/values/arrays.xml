@@ -7,4 +7,9 @@
         <item>Medium</item>
         <item>Low</item>
     </string-array>
+    <string-array name="status">
+        <item>To Do</item>
+        <item>In Progress</item>
+        <item>Done</item>
+    </string-array>
 </resources>

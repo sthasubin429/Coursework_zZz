@@ -2,18 +2,25 @@ package com.example.zzz;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.Calendar;
+
 public class dashboard extends AppCompatActivity {
     FirebaseAuth mAuth;
     private TextView user_email, user_name;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +30,8 @@ public class dashboard extends AppCompatActivity {
         user_name = findViewById(R.id.dashboard_name);
 
         mAuth = FirebaseAuth.getInstance();
+
+
 
     }
 
@@ -38,6 +47,7 @@ public class dashboard extends AppCompatActivity {
             Toast.makeText(dashboard.this, "Welcome to dashboard", Toast.LENGTH_SHORT).show();
            // String name = currentUser.getDisplayName().toString();
             String email = currentUser.getEmail().toString();
+
 
             //user_name.setText(name);
             user_email.setText(email);
