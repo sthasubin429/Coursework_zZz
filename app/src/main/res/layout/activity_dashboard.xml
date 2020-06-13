@@ -16,12 +16,14 @@
         android:layout_margin="20sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
     <TextView
-        android:text="Welcome!"
-        android:textSize="20sp"
-        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Welcome!"
+        android:textSize="20sp" />
+
     <TextView
         android:id="@+id/dashboard_name"
         android:text="name"
@@ -30,6 +32,16 @@
     <TextView
         android:id="@+id/dashboard_email"
         android:text="email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:text="Create Task"
+        android:onClick="openCreateTask"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:text="All Tasks"
+        android:onClick="openAllTasks"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <Button

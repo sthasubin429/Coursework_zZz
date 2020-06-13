@@ -52,4 +52,14 @@ public class dashboard extends AppCompatActivity {
 
 
     }
+
+    public void openCreateTask(View view) {
+        startActivity(new Intent(getApplicationContext(), CreateTask.class));
+        finish();
+    }
+
+    public void openAllTasks(View view) {
+        startActivity(new Intent(getApplicationContext(), AllTasks.class));
+        finish();
+    }
 }
