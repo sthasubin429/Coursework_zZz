@@ -1,57 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20sp"
     android:orientation="vertical"
     tools:context=".dashboard">
 
     <TextView
+        android:id="@+id/pageHead"
         android:text="Dashboard"
-        android:textSize="20sp"
+        android:textSize="24dp"
+        android:padding="30dp"
         android:gravity="center"
-        android:textColor="@color/colorAccent"
-        android:layout_margin="20sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <TextView
+        android:background="@color/colorPrimaryDark"
+        android:textColor="#fff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Welcome!"
-        android:textSize="20sp" />
+        android:layout_marginBottom="30dp"/>
 
-    <TextView
-        android:id="@+id/dashboard_name"
-        android:text="name"
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_below = "@id/pageHead"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <TextView
-        android:id="@+id/dashboard_email"
-        android:text="email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <Button
-        android:text="Create Task"
-        android:onClick="openCreateTask"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <Button
-        android:text="My Tasks"
-        android:onClick="openMyTask"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <Button
-        android:text="All Tasks"
-        android:onClick="openAllTasks"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <Button
-        android:text="Sign Out"
-        android:onClick="signOut"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-</LinearLayout>
+        android:layout_height="match_parent">
+
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:gravity="center"-->
+<!--            android:text="Welcome !!"-->
+<!--            android:textColor="#000"-->
+<!--            android:textSize="20dp"-->
+<!--            android:layout_marginBottom="30dp"/>-->
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp">
+
+            <TextView
+                android:id="@+id/dashboard_name"
+                android:text="name"
+                android:textSize="18dp"
+                android:textColor="#000"
+                android:gravity="end"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/dashboard_email"
+                android:text="email"
+                android:textSize="18dp"
+                android:textColor="#000"
+                android:gravity="end"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:text="Create Task"
+                android:onClick="openCreateTask"
+                android:background="@color/colorPrimaryDark"
+                android:textColor="#fff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp">
+
+                <Button
+                    android:text="My Tasks"
+                    android:onClick="openMyTask"
+                    android:background="@color/colorPrimaryDark"
+                    android:textColor="#fff"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginRight="5dp"/>
+
+                <Button
+                    android:text="All Tasks"
+                    android:onClick="openAllTasks"
+                    android:background="@color/colorPrimaryDark"
+                    android:textColor="#fff"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp"/>
+
+            </LinearLayout>
+
+            <Button
+                android:text="History"
+                android:background="@color/colorPrimaryDark"
+                android:textColor="#fff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"/>
+
+            <Button
+                android:text="Sign Out"
+                android:onClick="signOut"
+                android:background="@color/colorPrimaryDark"
+                android:textColor="#fff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>
