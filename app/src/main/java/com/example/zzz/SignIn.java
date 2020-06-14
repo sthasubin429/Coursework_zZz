@@ -19,7 +19,7 @@ import com.google.firebase.auth.UserProfileChangeRequest;
 
 public class SignIn extends AppCompatActivity {
     private FirebaseAuth mAuth;
-    private EditText signup_email, signup_pass, signup_confirmPass, signup_name;
+    private EditText signup_email, signup_pass, signup_confirmPass, signup_username;
 
 
     @Override
@@ -30,7 +30,7 @@ public class SignIn extends AppCompatActivity {
         signup_email = findViewById(R.id.signup_email_id);
         signup_pass = findViewById(R.id.signup_pass_id);
         signup_confirmPass = findViewById(R.id.signup_confirmpass_id);
-        signup_name = findViewById(R.id.signup_full_name);
+        signup_username = findViewById(R.id.signup_username);
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
@@ -42,7 +42,7 @@ public class SignIn extends AppCompatActivity {
         String email = signup_email.getText().toString().trim();
         String pass = signup_pass.getText().toString().trim();
         String confirm_pass = signup_confirmPass.getText().toString().trim();
-        String name = signup_name.getText().toString();
+        String name = signup_username.getText().toString();
 
         if (TextUtils.isEmpty(email)){
             Toast.makeText(this,"Email is empty", Toast.LENGTH_SHORT).show();

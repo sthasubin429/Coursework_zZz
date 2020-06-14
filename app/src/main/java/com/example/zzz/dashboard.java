@@ -56,7 +56,7 @@ public class dashboard extends AppCompatActivity {
 
     public void signOut(View view) {
         FirebaseAuth.getInstance().signOut();
-        Toast.makeText(dashboard.this, "Sign OUT Sucessful", Toast.LENGTH_SHORT).show();
+        Toast.makeText(dashboard.this, "Sign Out Sucessful", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(getApplicationContext(), MainActivity.class));
         finish();
 
