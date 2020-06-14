@@ -7,21 +7,16 @@
     android:layout_margin="20dp"
     tools:context=".MainActivity">
     <TextView
-        android:text="All Tasks"
+        android:text="History"
         android:textSize="30sp"
         android:textColor="#F00"
         android:gravity="center"
         android:layout_marginBottom="30sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-    <Button
-        android:text="Dashboard"
-        android:onClick="openDashboard"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
 
     <ListView
-        android:id="@+id/tasks_lv_id"
+        android:id="@+id/history_lv_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

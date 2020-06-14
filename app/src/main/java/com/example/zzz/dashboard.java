@@ -9,6 +9,7 @@ import android.text.InputType;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.MultiAutoCompleteTextView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -72,5 +73,9 @@ public class dashboard extends AppCompatActivity {
 
     public void openMyTask(View view) {
         startActivity(new Intent(getApplicationContext(), MyTasks.class));
+    }
+
+    public void openHistory(View view) {
+        startActivity(new Intent(getApplicationContext(), History.class));
     }
 }

@@ -12,6 +12,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -127,7 +128,8 @@ public class ViewActivity extends AppCompatActivity {
     public void doThis(View view) {
         taskObj.setAssignedTo(mAuth.getCurrentUser().getEmail());
         dbRef.child("Tasks").child(id).setValue(taskObj);
-        startActivity(new Intent(ViewActivity.this, AllTasks.class));
+        startActivity(new Intent(ViewActivity.this, dashboard.class));
+        Toast.makeText(this, "Task has been assigned to you.", Toast.LENGTH_SHORT).show();
     }
 
     public void updateTask(View view) {
