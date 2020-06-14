@@ -7,7 +7,7 @@
     android:layout_margin="20dp"
     tools:context=".MainActivity">
     <TextView
-        android:text="All Tasks"
+        android:text="My Taks"
         android:textSize="30sp"
         android:textColor="#F00"
         android:gravity="center"
@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"/>
 
     <ListView
-        android:id="@+id/tasks_lv_id"
+        android:id="@+id/my_tasks_lv_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

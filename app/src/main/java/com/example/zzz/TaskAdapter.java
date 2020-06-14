@@ -36,6 +36,7 @@ public class TaskAdapter extends ArrayAdapter<Task> {
         TextView taskDescription = view.findViewById(R.id.task_list_Description);
         TextView taskDueDate = view.findViewById(R.id.task_list_due_date);
         TextView taskCreatedBy = view.findViewById(R.id.task_list_created_by);
+        TextView taskStatus = view.findViewById(R.id.task_list_status);
 
         Task taskObj = taskList.get(position);
 
@@ -43,6 +44,7 @@ public class TaskAdapter extends ArrayAdapter<Task> {
         taskDescription.setText(taskObj.getDescription());
         taskDueDate.setText(taskObj.getDueDate());
         taskCreatedBy.setText(taskObj.getCreatedBy());
+        taskStatus.setText(taskObj.getStatus());
 
         return view;
     }

@@ -59,6 +59,7 @@ public class ViewActivity extends AppCompatActivity {
         task_assignedTo = findViewById(R.id.view_assignedTo);
         task_doThis = findViewById(R.id.view_btn_doTask);
         task_changeStatus = findViewById(R.id.view_change_status);
+        task_changeStatus.setEnabled(false);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -131,12 +132,18 @@ public class ViewActivity extends AppCompatActivity {
 
     public void updateTask(View view) {
         String dueDate = task_dueDate.getText().toString();
-        String status = task_changeStatus.getSelectedItem().toString();
-
         taskObj.setDueDate(dueDate);
-        taskObj.setStatus(status);
+
+        if(task_changeStatus.isEnabled()){
+            String status = task_changeStatus.getSelectedItem().toString();
+            taskObj.setStatus(status);
+        }
 
         dbRef.child("Tasks").child(id).setValue(taskObj);
         startActivity(new Intent(ViewActivity.this, AllTasks.class));
+    }
+
+    public void view_btn_changeStatus(View view) {
+        task_changeStatus.setEnabled(true);
     }
 }

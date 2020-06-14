@@ -72,4 +72,8 @@ public class dashboard extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(), AllTasks.class));
         finish();
     }
+
+    public void openMyTask(View view) {
+        startActivity(new Intent(getApplicationContext(), MyTasks.class));
+    }
 }

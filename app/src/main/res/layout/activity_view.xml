@@ -111,10 +111,11 @@
             android:id="@+id/view_task_currentStatus"
             android:textSize="20sp" />
 
-        <TextView
+        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Change Status"
+            android:onClick="view_btn_changeStatus"
             android:textSize="20sp" />
 
         <Spinner

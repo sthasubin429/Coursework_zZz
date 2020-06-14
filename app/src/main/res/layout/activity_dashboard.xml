@@ -40,6 +40,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <Button
+        android:text="My Tasks"
+        android:onClick="openMyTask"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
         android:text="All Tasks"
         android:onClick="openAllTasks"
         android:layout_width="match_parent"

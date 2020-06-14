@@ -24,7 +24,6 @@ public class AllTasks extends AppCompatActivity {
     private ListView lv;
     private DatabaseReference dbRef;
     private List<Task> listTask;
-    TextView test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,14 +34,12 @@ public class AllTasks extends AppCompatActivity {
 
         lv = findViewById(R.id.tasks_lv_id);
 
-        test = findViewById(R.id.lv_test);
         listTask = new ArrayList<>();
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String UserInfo = listTask.get(position).getId();
-                test.setText(UserInfo);
 
 
                 Intent i =  new Intent(AllTasks.this, ViewActivity.class);
@@ -65,7 +62,9 @@ public class AllTasks extends AppCompatActivity {
                 listTask.clear();
                 for(DataSnapshot taskSnapshot : dataSnapshot.getChildren()){
                     Task obj = taskSnapshot.getValue(Task.class);
-                    listTask.add(obj);
+                    if (obj.getStatus().equals("To Do") || obj.getStatus().equals("In Progress")){
+                        listTask.add(obj);
+                    }
 
                 }
 
