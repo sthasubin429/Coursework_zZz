@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     public void signIn(View view) {
 
         String email = signin_email.getText().toString();
-        String pass = signin_pass.getText().toString();
+        String pass = signin_pass.getText().toString().trim();
 
         if (TextUtils.isEmpty(email)){
             Toast.makeText(this,"Email is empty", Toast.LENGTH_SHORT).show();

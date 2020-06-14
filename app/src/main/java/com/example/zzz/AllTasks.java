@@ -45,7 +45,6 @@ public class AllTasks extends AppCompatActivity {
                 Intent i =  new Intent(AllTasks.this, ViewActivity.class);
                 i.putExtra("currentId", UserInfo);
                 startActivity(i);
-                finish();
             }
         });
 
@@ -71,7 +70,6 @@ public class AllTasks extends AppCompatActivity {
                 TaskAdapter adapter = new TaskAdapter(AllTasks.this, listTask);
                 lv.setAdapter(adapter);
 
-                Toast.makeText(AllTasks.this, "Firebase Connected", Toast.LENGTH_SHORT).show();
 
 
             }

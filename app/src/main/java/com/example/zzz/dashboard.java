@@ -44,12 +44,11 @@ public class dashboard extends AppCompatActivity {
             startActivity(new Intent(this, MainActivity.class));
         }
         else{
-            Toast.makeText(dashboard.this, "Welcome to dashboard", Toast.LENGTH_SHORT).show();
-           // String name = currentUser.getDisplayName().toString();
+            String name = currentUser.getDisplayName().toString();
             String email = currentUser.getEmail().toString();
 
 
-            //user_name.setText(name);
+            user_name.setText(name);
             user_email.setText(email);
         }
     }
@@ -65,12 +64,10 @@ public class dashboard extends AppCompatActivity {
 
     public void openCreateTask(View view) {
         startActivity(new Intent(getApplicationContext(), CreateTask.class));
-        finish();
     }
 
     public void openAllTasks(View view) {
         startActivity(new Intent(getApplicationContext(), AllTasks.class));
-        finish();
     }
 
     public void openMyTask(View view) {

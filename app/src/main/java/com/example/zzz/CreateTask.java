@@ -12,6 +12,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -93,14 +94,26 @@ public class CreateTask extends AppCompatActivity {
         String dueDate = taskDueDate.getText().toString();
         String status = "To Do";
         String assignedTo = "None";
-        FirebaseUser currentUser = mAuth.getCurrentUser();
 
-        Task taskObj = new Task(id, name,description, priority,dueDate, currentUser.getEmail(), status, assignedTo);
-        taskdbReference.child(id).setValue(taskObj);
-        
-        startActivity(new Intent(this, dashboard.class));
+        if(name.isEmpty()){
 
+            Toast.makeText(this, "Task Name cannot be empty", Toast.LENGTH_SHORT).show();
+        }
+        else if (description.isEmpty()){
+            Toast.makeText(this, "Task Description cannot be empty", Toast.LENGTH_SHORT).show();
+        }
 
+        else if (dueDate.isEmpty()){
+            Toast.makeText(this, "Please Select Due Date", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            FirebaseUser currentUser = mAuth.getCurrentUser();
 
+            Task taskObj = new Task(id, name,description, priority,dueDate, currentUser.getEmail(), status, assignedTo);
+            taskdbReference.child(id).setValue(taskObj);
+
+            startActivity(new Intent(this, dashboard.class));
+
+        }
     }
 }
