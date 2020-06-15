@@ -73,10 +73,9 @@ public class Archive extends AppCompatActivity {
                         task_priority.setText(taskObj.getPriority());
                         task_dueDate.setText(taskObj.getDueDate());
                         task_createdBy.setText(taskObj.getCreatedBy());
+                        task_status.setText(taskObj.getStatus());
                         task_assignedTo.setText(taskObj.getAssignedTo());
                     }
-
-
                 }
             }
 
@@ -85,8 +84,6 @@ public class Archive extends AppCompatActivity {
 
             }
         });
-
-
 
     }
 

@@ -1,141 +1,250 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true">
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="20sp"
         android:orientation="vertical"
         tools:context=".dashboard">
 
         <TextView
+            android:id="@+id/pageHead"
             android:text="Completed Task"
-            android:textSize="20sp"
+            android:textSize="24dp"
+            android:textColor="#FFF"
+            android:background="@color/colorPrimaryDark"
+            android:padding="30dp"
             android:gravity="center"
-            android:textColor="@color/colorAccent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-        <TextView
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:layout_below="@id/pageHead">
+        <RelativeLayout
+            android:id="@+id/completedTaskDetails"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Id"
-            android:textSize="20sp" />
+            android:paddingTop="20dp"
+            android:paddingRight="20dp"
+            android:paddingLeft="20dp"
+            android:paddingBottom="30dp"
+            android:layout_below="@id/pageHead">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Default ID"
-            android:id="@+id/archive_id"
-            android:textSize="20sp" />
+            <LinearLayout
+                android:id="@+id/task_identifier_completed"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Name"
-            android:textSize="20sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:text="Task ID" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Default Name"
-            android:id="@+id/archive_name"
-            android:textSize="20sp" />
+                <TextView
+                    android:id="@+id/archive_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ID"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Description"
-            android:textSize="20sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Default Description"
-            android:id="@+id/archive_description"
-            android:textSize="20sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Priority"
-            android:textSize="20sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Default Priority"
-            android:id="@+id/archive_priority"
-            android:textSize="20sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Due Date"
-            android:textSize="20sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Default Due Date"
-            android:id="@+id/archive_dueDate"
-            android:textSize="20sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Created By"
-            android:textSize="20sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Default Created By"
-            android:id="@+id/archive_createdBy"
-            android:textSize="20sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Status"
-            android:textSize="20sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Default Current Status"
-            android:id="@+id/archive_Status"
-            android:textSize="20sp" />
+            </LinearLayout>
 
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Assigned To"
-            android:textSize="20sp" />
+            <LinearLayout
+                android:id="@+id/task_title_completed"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/task_identifier_completed"
+                android:layout_marginBottom="5dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Default Assigned To"
-            android:id="@+id/archive_assignedTo"
-            android:textSize="20sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:textColor="#000"
+                    android:textSize="16dp" />
 
-        <Button
-            android:id="@+id/history"
-            android:onClick="goToHistory"
-            android:text="Back to History"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Default Name"
+                    android:id="@+id/archive_name"
+                    android:textSize="16dp"/>
 
-    </LinearLayout>
+            </LinearLayout>
 
-</ScrollView>
+
+            <LinearLayout
+                android:id="@+id/task_description_completed"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/task_title_completed"
+                android:layout_marginBottom="5dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Description"
+                    android:textColor="#000"
+                    android:textSize="16dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Default Description"
+                    android:id="@+id/archive_description"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/task_priority_completed"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/task_description_completed"
+                android:layout_marginBottom="5dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Priority: "
+                    android:textColor="#000"
+                    android:textSize="16dp"
+                    android:layout_weight="0.7"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Default Priority"
+                    android:id="@+id/archive_priority"
+                    android:textSize="16dp"
+                    android:layout_weight="0.3"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/task_due_date_completed"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/task_priority_completed"
+                android:layout_marginBottom="5dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Due Date: "
+                    android:textColor="#000"
+                    android:textSize="16dp"
+                    android:layout_weight="0.7"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Default Due Date"
+                    android:id="@+id/archive_dueDate"
+                    android:textSize="16dp"
+                    android:layout_weight="0.3"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/task_creator_completed"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/task_due_date_completed"
+                android:layout_marginBottom="5dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Created By"
+                    android:textColor="#000"
+                    android:textSize="16dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Default Created By"
+                    android:id="@+id/archive_createdBy"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/task_status_completed"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/task_creator_completed"
+                android:layout_marginBottom="5dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Status"
+                    android:textColor="#000"
+                    android:textSize="16dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Default Current Status"
+                    android:id="@+id/archive_Status"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/task_assigned_completed"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/task_status_completed"
+                android:layout_marginBottom="30dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Assigned To"
+                    android:textColor="#000"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Default Assigned To"
+                    android:id="@+id/archive_assignedTo"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/history"
+                android:onClick="goToHistory"
+                android:text="Back to History"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimaryDark"
+                android:textColor="#fff"
+                android:layout_below="@+id/task_assigned_completed"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
+
 
 
 
