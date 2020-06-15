@@ -3,9 +3,13 @@ package com.example.zzz;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -45,7 +49,6 @@ public class MainActivity extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly
-
     }
 
     public void signIn(View view) {
@@ -64,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
 
         else{
             fbSignIn(email, pass);
-
             return;
         }
 
@@ -79,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
 
                             FirebaseUser user = mAuth.getCurrentUser();
+                            createNotification("Welcome to zZz, " + user.getDisplayName());
                             Toast.makeText(MainActivity.this, "Signin Sucessful", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(MainActivity.this, dashboard.class));
 
@@ -90,12 +93,29 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 });
-
     }
 
     public void main_signup(View view) {
         startActivity(new Intent(this, SignIn.class));
     }
 
+    public void createNotification(String title){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            NotificationChannel channel = new NotificationChannel("MyNotifications", "MyNotification", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+
+        }
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "MyNotifications")
+                .setContentTitle(title)
+                .setSmallIcon(R.drawable.ic_stat_name)
+                .setAutoCancel(true);
+
+        NotificationManagerCompat manager = NotificationManagerCompat.from(this);
+        manager.notify(999, builder.build());
+
+
+    }
 
 }
