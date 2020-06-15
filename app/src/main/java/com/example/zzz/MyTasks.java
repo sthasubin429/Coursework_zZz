@@ -37,7 +37,7 @@ public class MyTasks extends AppCompatActivity {
 
         lv = findViewById(R.id.my_tasks_lv_id);
 
-        listTask = new ArrayList<>();
+
         mAuth = FirebaseAuth.getInstance();
 
         /**
@@ -61,6 +61,12 @@ public class MyTasks extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        if(listTask != null) {
+            listTask.clear();
+        } else {
+            listTask = new ArrayList<>();
+        }
+
         /**
          * Queries the database and selects the tasks that are assigned to current user and has the status To Do or In Progress
          * Uses list View to display the task

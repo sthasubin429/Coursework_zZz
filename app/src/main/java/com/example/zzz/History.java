@@ -39,7 +39,8 @@ public class History extends AppCompatActivity {
 
         lv = findViewById(R.id.history_lv_id);
 
-        listTask = new ArrayList<>();
+
+
         mAuth = FirebaseAuth.getInstance();
 
         /**
@@ -63,6 +64,11 @@ public class History extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        if(listTask != null) {
+            listTask.clear();
+        } else {
+            listTask = new ArrayList<>();
+        }
 
         /**
          * Queries the Realtime Database
