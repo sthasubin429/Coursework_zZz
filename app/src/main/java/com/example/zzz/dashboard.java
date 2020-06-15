@@ -89,7 +89,7 @@ public class dashboard extends AppCompatActivity {
 //
 //            }
 //        });
-        this.createNotification("Welcome " + mAuth.getCurrentUser().getEmail());
+        this.createNotification("Welcome " + mAuth.getCurrentUser().getDisplayName());
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser == null  ){
@@ -140,7 +140,7 @@ public class dashboard extends AppCompatActivity {
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "MyNotifications")
                 .setContentTitle(title)
-                .setSmallIcon(R.drawable.ic_launcher_background)
+                .setSmallIcon(R.drawable.ic_stat_name)
                 .setAutoCancel(true);
 
         NotificationManagerCompat manager = NotificationManagerCompat.from(this);
