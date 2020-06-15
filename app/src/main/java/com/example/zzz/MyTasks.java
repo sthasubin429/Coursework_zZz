@@ -88,4 +88,7 @@ public class MyTasks extends AppCompatActivity {
 
     }
 
+    public void openDashboard(View view) {
+        startActivity(new Intent(this, dashboard.class));
+    }
 }

@@ -33,7 +33,6 @@ public class TaskAdapter extends ArrayAdapter<Task> {
         View view = inflater.inflate(R.layout.tasks_item_layout, null , true);
 
         TextView taskName = view.findViewById(R.id.task_list_name);
-        TextView taskDescription = view.findViewById(R.id.task_list_Description);
         TextView taskDueDate = view.findViewById(R.id.task_list_due_date);
         TextView taskCreatedBy = view.findViewById(R.id.task_list_created_by);
         TextView taskStatus = view.findViewById(R.id.task_list_status);
@@ -41,7 +40,6 @@ public class TaskAdapter extends ArrayAdapter<Task> {
         Task taskObj = taskList.get(position);
 
         taskName.setText(taskObj.getName());
-        taskDescription.setText(taskObj.getDescription());
         taskDueDate.setText(taskObj.getDueDate());
         taskCreatedBy.setText(taskObj.getCreatedBy());
         taskStatus.setText(taskObj.getStatus());

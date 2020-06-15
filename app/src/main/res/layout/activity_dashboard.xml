@@ -27,15 +27,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:gravity="center"-->
-<!--            android:text="Welcome !!"-->
-<!--            android:textColor="#000"-->
-<!--            android:textSize="20dp"-->
-<!--            android:layout_marginBottom="30dp"/>-->
-
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -44,7 +35,7 @@
 
             <TextView
                 android:id="@+id/dashboard_name"
-                android:text="name"
+                android:text="Username"
                 android:textSize="18dp"
                 android:textColor="#000"
                 android:gravity="end"
@@ -53,7 +44,7 @@
 
             <TextView
                 android:id="@+id/dashboard_email"
-                android:text="email"
+                android:text="Email"
                 android:textSize="18dp"
                 android:textColor="#000"
                 android:gravity="end"
