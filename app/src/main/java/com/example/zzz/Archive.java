@@ -39,9 +39,15 @@ public class Archive extends AppCompatActivity {
 
         dbRef = FirebaseDatabase.getInstance().getReference();
 
+        /**
+         * Gets the value strored in intent
+         */
         Intent intent = getIntent();
         id = intent.getStringExtra("currentId");
 
+        /**
+         * Selects all the Text view from Layout
+         */
         task_id = findViewById(R.id.archive_id);
         task_name = findViewById(R.id.archive_name);
         task_description = findViewById(R.id.archive_description);
@@ -60,6 +66,10 @@ public class Archive extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
+        /**
+         * Queries the databse and selects all the tasks that are Done
+         */
         Query query = dbRef.child("Tasks").orderByChild("id").equalTo(id);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -87,6 +97,10 @@ public class Archive extends AppCompatActivity {
 
     }
 
+    /**
+     * Starts History Activity
+     * @param view
+     */
     public void goToHistory(View view) {
         startActivity(new Intent(getApplicationContext(), History.class));
     }

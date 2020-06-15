@@ -38,6 +38,10 @@ public class MainActivity extends AppCompatActivity {
         signin_email = findViewById(R.id.signin_email_id);
         signin_pass = findViewById(R.id.signin_pass_id);
         mAuth = FirebaseAuth.getInstance();
+
+        /**
+         * Checks if any user is logged in or not redirects to dasahboard if user is already logged in
+         */
         if(mAuth.getCurrentUser() != null  ){
             startActivity(new Intent(getApplicationContext(), dashboard.class));
             finish();
@@ -51,6 +55,13 @@ public class MainActivity extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly
     }
 
+
+    /**
+     * Gets the value Enterd by user
+     * Does basic validation on it
+     * Authenticates using Firebase Authentication.
+     * @param view
+     */
     public void signIn(View view) {
 
         String email = signin_email.getText().toString();
@@ -71,6 +82,14 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+    /**
+     * Takes email and password
+     * Authenticates user using firebase authenticates
+     * Displays appropriate message on success or failure
+     * @param email
+     * @param pass
+     */
 
     public void fbSignIn(String email, String pass){
         mAuth.signInWithEmailAndPassword(email, pass)
@@ -95,13 +114,22 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
+    /**
+     * Starts Sign up Activity
+     * @param view
+     */
     public void main_signup(View view) {
         startActivity(new Intent(this, SignIn.class));
     }
 
+    /**
+     * Method to create notification
+     * Notification is created every time user logs in.
+     * @param title
+     */
     public void createNotification(String title){
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            NotificationChannel channel = new NotificationChannel("MyNotifications", "MyNotification", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationChannel channel = new NotificationChannel("MyNotifications", "MyNotifications", NotificationManager.IMPORTANCE_DEFAULT);
             NotificationManager manager = getSystemService(NotificationManager.class);
             manager.createNotificationChannel(channel);
 
@@ -117,5 +145,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
 
 }

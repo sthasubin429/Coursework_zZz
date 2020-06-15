@@ -45,8 +45,15 @@ public class ViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view);
 
+
+        /**
+         * Selects all the necessary values
+         */
         dbRef = FirebaseDatabase.getInstance().getReference();
 
+        /**
+         * Gets the User ID stored in the intent
+         */
         Intent intent = getIntent();
         id = intent.getStringExtra("currentId");
 
@@ -64,7 +71,10 @@ public class ViewActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-
+        /**
+         * Method to display calender in edit text view
+         * Used to edit due date in the view activity tab.
+         */
         task_dueDate.setInputType(InputType.TYPE_NULL);
         task_dueDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,6 +101,11 @@ public class ViewActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
+        /**
+         * Queries the database and selects the particurlar task using the id
+         * Sets text for all the retreived data
+         */
         Query query = dbRef.child("Tasks").orderByChild("id").equalTo(id);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -126,6 +141,12 @@ public class ViewActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Button to accept the any task which is currenty viewed
+     * This button does not work if any user is already assigned to the task.
+     *
+     * @param view
+     */
     public void doThis(View view) {
         taskObj.setAssignedTo(mAuth.getCurrentUser().getEmail());
         dbRef.child("Tasks").child(id).setValue(taskObj);
@@ -133,6 +154,11 @@ public class ViewActivity extends AppCompatActivity {
         Toast.makeText(this, "Task has been assigned to you.", Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     * If the user makes any updates on the task this method is called on click update.
+     * Queries the database and updates the data
+     * @param view
+     */
     public void updateTask(View view) {
         if (task_assignedTo.getText().toString().equals("None")){
             Toast.makeText(this, "Please Assign Task First.", Toast.LENGTH_SHORT).show();
@@ -156,6 +182,10 @@ public class ViewActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Changes the button of chages status button
+     * @param view
+     */
     public void view_btn_changeStatus(View view) {
         task_changeStatus.setEnabled(true);
     }

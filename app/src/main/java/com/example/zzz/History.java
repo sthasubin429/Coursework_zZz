@@ -32,6 +32,9 @@ public class History extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
 
+        /**
+         * Selects all the necessary parameters
+         */
         dbRef = FirebaseDatabase.getInstance().getReference();
 
         lv = findViewById(R.id.history_lv_id);
@@ -39,6 +42,10 @@ public class History extends AppCompatActivity {
         listTask = new ArrayList<>();
         mAuth = FirebaseAuth.getInstance();
 
+        /**
+         * On click lister on each item on list view
+         * Starts activity that displays all the details of the Task, the details cannot be edited.
+         */
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -56,6 +63,11 @@ public class History extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
+        /**
+         * Queries the Realtime Database
+         * Selects the tasks which are Done and displays them using list view
+         */
         FirebaseUser currentUser = mAuth.getCurrentUser();
         Query query = dbRef.child("Tasks").orderByChild("assignedTo").equalTo(currentUser.getEmail());
         query.addListenerForSingleValueEvent(new ValueEventListener() {

@@ -40,6 +40,11 @@ public class MyTasks extends AppCompatActivity {
         listTask = new ArrayList<>();
         mAuth = FirebaseAuth.getInstance();
 
+        /**
+         * added On Clink Listener on each item of list view
+         * Starts Activity that displays the details of the clicked task where some details can be edited
+         * Adds the id of clicked task in the intent
+         */
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -56,6 +61,10 @@ public class MyTasks extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        /**
+         * Queries the database and selects the tasks that are assigned to current user and has the status To Do or In Progress
+         * Uses list View to display the task
+         */
         FirebaseUser currentUser = mAuth.getCurrentUser();
         Query query = dbRef.child("Tasks").orderByChild("assignedTo").equalTo(currentUser.getEmail());
         query.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -88,6 +97,10 @@ public class MyTasks extends AppCompatActivity {
 
     }
 
+    /**
+     * Starts Dashboard activity
+     * @param view
+     */
     public void openDashboard(View view) {
         startActivity(new Intent(this, dashboard.class));
     }

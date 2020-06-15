@@ -36,6 +36,11 @@ public class AllTasks extends AppCompatActivity {
 
         listTask = new ArrayList<>();
 
+        /**
+         * added On Clink Listener on each item of list view
+         * Starts Activity that displays the details of the clicked task where some details can be edited
+         * Adds the id of clicked task in the intent
+         */
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -55,6 +60,10 @@ public class AllTasks extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
+        /**
+         * Queries the database and gets all the task that are To Do or In Progress and displays tem using adapter view
+         */
         dbRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -83,6 +92,10 @@ public class AllTasks extends AppCompatActivity {
 
     }
 
+    /**
+     * opens dashboard activity
+     * @param view
+     */
     public void openDashboard(View view) {
         startActivity(new Intent(this, dashboard.class));
     }

@@ -42,6 +42,9 @@ public class CreateTask extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_task);
 
+        /**
+         * Selects all the view from layout
+         */
         taskName = findViewById(R.id.taskName);
         taskDescription = findViewById(R.id.taskDescription);
         taskPriority = findViewById(R.id.priority_spinner);
@@ -56,7 +59,9 @@ public class CreateTask extends AppCompatActivity {
         id = pushedPostRef.getKey();
         taskId.setText(id);
 
-
+        /**
+         * Displays calender to select date on the edit text view
+         */
         editText=(EditText) findViewById(R.id.dueDate);
         editText.setInputType(InputType.TYPE_NULL);
         editText.setOnClickListener(new View.OnClickListener() {
@@ -82,6 +87,12 @@ public class CreateTask extends AppCompatActivity {
 
     }
 
+    /**
+     * Gets all the data entered by the user
+     * Does basic validation
+     * Stores the created task into the realtime database
+     * @param view
+     */
     public void taskCreate(View view) {
         // Generate a reference to a new location and add some data using push()
 
