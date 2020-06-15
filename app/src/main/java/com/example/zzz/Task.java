@@ -15,6 +15,19 @@ public class Task {
 
     }
 
+    /**
+     * Model class for Task
+     * Adapter class to store data into database or get data from database
+     * @param id
+     * @param name
+     * @param description
+     * @param priority
+     * @param dueDate
+     * @param createdBy
+     * @param status
+     * @param assignedTo
+     */
+
     public Task(String id, String name, String description, String priority, String dueDate, String createdBy, String status, String assignedTo) {
         this.id = id;
         this.name = name;

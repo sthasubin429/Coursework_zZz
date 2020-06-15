@@ -19,6 +19,12 @@ public class TaskAdapter extends ArrayAdapter<Task> {
     private Activity context;
     private List<Task> taskList;
 
+
+    /**
+     * Adapter class that returns a view from items in list view
+     * @param context
+     * @param singerList
+     */
     public TaskAdapter(Activity context, List<Task> singerList) {
         super(context, R.layout.tasks_item_layout, singerList);
         this.context = context;

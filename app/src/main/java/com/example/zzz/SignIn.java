@@ -36,6 +36,12 @@ public class SignIn extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
     }
 
+    /**
+     * Gets the data input by the user
+     * Does Validation on the data entered by the user
+     * Creates New user using Firebase Authentication
+     * @param view
+     */
     public void signUp(View view) {
         //Signup Function
 
@@ -76,6 +82,13 @@ public class SignIn extends AppCompatActivity {
 
     }
 
+    /**
+     * Function that Requests the Firebase and creates new user
+     * Displays appropriate toast based on success or failure to create new user
+     * @param email
+     * @param pass
+     * @param name
+     */
     private void createAccount(final String email, final String pass, final String name) {
 
         //Firebase Signup

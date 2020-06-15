@@ -45,6 +45,11 @@ public class dashboard extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         dbRef = FirebaseDatabase.getInstance().getReference();
+
+        /**
+         * checks if any user is logged in
+         * If no user is logged in redirects to sign in page or main activity
+         */
         if(mAuth.getCurrentUser() == null  ){
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
             finish();
@@ -56,7 +61,7 @@ public class dashboard extends AppCompatActivity {
     public void onStart() {
         super.onStart();
 
-        this.createNotification("Welcome " + mAuth.getCurrentUser().getDisplayName());
+
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser == null  ){
@@ -72,6 +77,10 @@ public class dashboard extends AppCompatActivity {
         }
     }
 
+    /**
+     * Method to Signout current user
+     * @param view
+     */
     public void signOut(View view) {
         FirebaseAuth.getInstance().signOut();
         Toast.makeText(dashboard.this, "Sign Out Sucessful", Toast.LENGTH_SHORT).show();
@@ -81,38 +90,38 @@ public class dashboard extends AppCompatActivity {
 
     }
 
+    /**
+     * Stars create Task Activity
+     * @param view
+     */
     public void openCreateTask(View view) {
         startActivity(new Intent(getApplicationContext(), CreateTask.class));
     }
 
+    /**
+     * Starts all task Activity
+     * @param view
+     */
     public void openAllTasks(View view) {
         startActivity(new Intent(getApplicationContext(), AllTasks.class));
     }
 
+
+    /**
+     * Starts My task Activity
+     * @param view
+     */
     public void openMyTask(View view) {
         startActivity(new Intent(getApplicationContext(), MyTasks.class));
     }
 
+    /**
+     * Starts history activiy
+     * @param view
+     */
     public void openHistory(View view) {
         startActivity(new Intent(getApplicationContext(), History.class));
     }
 
-    public void createNotification(String title){
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            NotificationChannel channel = new NotificationChannel("MyNotifications", "MyNotification", NotificationManager.IMPORTANCE_DEFAULT);
-            NotificationManager manager = getSystemService(NotificationManager.class);
-            manager.createNotificationChannel(channel);
 
-        }
-
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "MyNotifications")
-                .setContentTitle(title)
-                .setSmallIcon(R.drawable.ic_stat_name)
-                .setAutoCancel(true);
-
-        NotificationManagerCompat manager = NotificationManagerCompat.from(this);
-        manager.notify(999, builder.build());
-
-
-    }
 }
