@@ -1,161 +1,263 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="20sp"
         android:orientation="vertical"
         tools:context=".dashboard">
 
         <TextView
-            android:text="View"
-            android:textSize="20sp"
+            android:id="@+id/pageHead"
+            android:text="View Task"
+            android:textSize="24dp"
+            android:textColor="#FFF"
+            android:background="@color/colorPrimaryDark"
+            android:padding="20dp"
             android:gravity="center"
-            android:textColor="@color/colorAccent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Id"
-            android:textSize="20sp" />
+            android:layout_marginBottom="5dp"/>
 
-        <TextView
+        <LinearLayout
+            android:orientation="vertical"
+            android:paddingRight="20dp"
+            android:paddingLeft="20dp"
+            android:paddingBottom="10dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Default ID"
-            android:id="@+id/view_task_id"
-            android:textSize="20sp" />
+            android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Name"
-            android:textSize="20sp" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Default Name"
-            android:id="@+id/view_task_name"
-            android:textSize="20sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Task ID"
+                    android:textColor="#000"
+                    android:textSize="20dp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Description"
-            android:textSize="20sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Default ID"
+                    android:id="@+id/view_task_id"
+                    android:textSize="16dp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Default Description"
-            android:id="@+id/view_task_description"
-            android:textSize="20sp" />
+            </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Priority"
-            android:textSize="20sp" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Default Priority"
-            android:id="@+id/view_task_priority"
-            android:textSize="20sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Task title"
+                    android:textColor="#000"
+                    android:textSize="20dp"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Due Date"
-            android:textSize="20sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Title"
+                    android:id="@+id/view_task_name"
+                    android:textSize="16dp" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Default Due Date"
-            android:id="@+id/view_task_dueDate"
-            android:textSize="20sp" />
+            </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Created By"
-            android:textSize="20sp" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Default Created By"
-            android:id="@+id/view_task_createdBy"
-            android:textSize="20sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Description"
+                    android:textColor="#000"
+                    android:textSize="20dp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Current Status"
-            android:textSize="20sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Description"
+                    android:id="@+id/view_task_description"
+                    android:textSize="16dp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Default Current Status"
-            android:id="@+id/view_task_currentStatus"
-            android:textSize="20sp" />
+            </LinearLayout>
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Change Status"
-            android:onClick="view_btn_changeStatus"
-            android:textSize="20sp" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <Spinner
-            android:id="@+id/view_change_status"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawSelectorOnTop="true"
-            android:entries="@array/status"
-            android:layout_marginBottom="10dp"
-            />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Created By"
+                    android:textColor="#000"
+                    android:textSize="20dp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Assigned To"
-            android:textSize="20sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Default Created By"
+                    android:id="@+id/view_task_createdBy"
+                    android:textSize="16dp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Default Assigned To"
-            android:id="@+id/view_assignedTo"
-            android:textSize="20sp" />
+            </LinearLayout>
 
-        <Button
-            android:onClick="doThis"
-            android:id="@+id/view_btn_doTask"
-            android:text="Do this Task"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:enabled="false"
-            />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <Button
-            android:onClick="updateTask"
-            android:text="Update"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Due Date: "
+                    android:textColor="#000"
+                    android:textSize="20dp"
+                    android:layout_weight="0.7"/>
 
-            />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Default Due Date"
+                    android:id="@+id/view_task_dueDate"
+                    android:textSize="16dp"
+                    android:background="@null"
+                    android:layout_weight="0.3"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Priority: "
+                    android:textColor="#000"
+                    android:textSize="20dp"
+                    android:layout_weight="0.7"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Default Priority"
+                    android:id="@+id/view_task_priority"
+                    android:textSize="16dp"
+                    android:layout_weight="0.3"/>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/current_status"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Status: "
+                        android:textColor="#000"
+                        android:textSize="20dp"
+                        android:layout_weight="0.7"/>
+
+                    <TextView
+                        android:id="@+id/view_task_currentStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Default Current Status"
+                        android:textSize="16dp"
+                        android:layout_weight="0.3"/>
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/changing_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Change status"
+                    android:onClick="view_btn_changeStatus"
+                    android:textSize="16dp"
+                    android:background="@color/colorPrimaryDark"
+                    android:textColor="#fff"
+                    android:layout_below="@id/current_status"/>
+
+                <Spinner
+                    android:id="@+id/view_change_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawSelectorOnTop="true"
+                    android:entries="@array/status"
+                    android:layout_marginBottom="10dp"
+                    android:layout_below="@id/changing_status"/>
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Assigned To"
+                    android:textColor="#000"
+                    android:textSize="20dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Assignee email"
+                    android:id="@+id/view_assignedTo"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+            <Button
+                android:onClick="doThis"
+                android:id="@+id/view_btn_doTask"
+                android:text="Do this Task"
+                android:background="@color/colorPrimaryDark"
+                android:textColor="#fff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:layout_marginBottom="5dp"/>
+
+            <Button
+                android:onClick="updateTask"
+                android:text="Update"
+                android:background="@color/colorPrimaryDark"
+                android:textColor="#fff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
     </LinearLayout>
 
 </ScrollView>

@@ -87,6 +87,4 @@ public class AllTasks extends AppCompatActivity {
         startActivity(new Intent(this, dashboard.class));
     }
 
-
-
 }

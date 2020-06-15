@@ -67,15 +67,10 @@ public class History extends AppCompatActivity {
                         if (obj.getStatus().equals("Done")){
                             listTask.add(obj);
                         }
-
-
                     }
 
                     TaskAdapter adapter = new TaskAdapter(History.this, listTask);
                     lv.setAdapter(adapter);
-
-
-
                 }
             }
 
@@ -84,8 +79,9 @@ public class History extends AppCompatActivity {
                 Toast.makeText(History.this, "Firebase Connection Failed", Toast.LENGTH_SHORT).show();
             }
         });
-
-
     }
 
+    public void openDashboard(View view) {
+        startActivity(new Intent(this, dashboard.class));
+    }
 }
