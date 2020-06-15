@@ -50,45 +50,12 @@ public class dashboard extends AppCompatActivity {
             finish();
         }
 
-
-
-
-
-
     }
 
     @Override
     public void onStart() {
         super.onStart();
-//        Query query = dbRef.child("Notification").orderByChild("notifiedTo").equalTo(mAuth.getCurrentUser().getEmail());
-//        query.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                if (dataSnapshot.exists()) {
-//                    for (DataSnapshot issue : dataSnapshot.getChildren())    {
-//                        Notification notification = issue.getValue(Notification.class);
-//                        String title = notification.getNotifiedBy();
-//                        String text = notification.getNotifitedTo() + notification.getStatus();
-//                        createNotification(title,text);
-//                        createNotification("helloooooo","hiiiiiii");
-//
-//                    }
-//                    createNotification("hello","hiiiiiii");
-//
-//
-//                }
-//                else{
-//                    createNotification("hello","hi1");
-//                    createNotification("hello","hi2");
-//                    createNotification("hello","hi3");
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//
-//            }
-//        });
+
         this.createNotification("Welcome " + mAuth.getCurrentUser().getDisplayName());
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
