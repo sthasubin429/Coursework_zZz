@@ -23,7 +23,8 @@
     <ListView
         android:id="@+id/tasks_lv_id"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        />
 
 
 
