@@ -146,7 +146,6 @@ public class ViewActivity extends AppCompatActivity {
                 String status = task_changeStatus.getSelectedItem().toString();
                 taskObj.setStatus(status);
 
-                dbRef.child("Notification").push().setValue(new Notification(taskObj.getCreatedBy(), mAuth.getCurrentUser().getEmail(), status));
             }
 
             dbRef.child("Tasks").child(id).setValue(taskObj);

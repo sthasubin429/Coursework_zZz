@@ -62,7 +62,7 @@ public class SignIn extends AppCompatActivity {
         }
 
         else if (pass.length() < 6){
-            Toast.makeText(this, "Password to Short", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Password must be more than 6 Characters Long.", Toast.LENGTH_SHORT).show();
             return;
         }
         else if (pass.equals(confirm_pass)){
