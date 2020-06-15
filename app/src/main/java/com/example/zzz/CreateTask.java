@@ -74,6 +74,7 @@ public class CreateTask extends AppCompatActivity {
                                 editText.setText(dayOfMonth + "-" + (month + 1) + "-" + year);
                             }
                         }, year, month, day);
+                datePiker.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
                 datePiker.show();
             }
         });
@@ -113,6 +114,7 @@ public class CreateTask extends AppCompatActivity {
             taskdbReference.child(id).setValue(taskObj);
 
             startActivity(new Intent(this, dashboard.class));
+            finish();
 
         }
     }

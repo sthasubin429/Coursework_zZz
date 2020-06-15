@@ -81,6 +81,7 @@ public class ViewActivity extends AppCompatActivity {
                                 task_dueDate.setText(dayOfMonth + "-" + (month + 1) + "-" + year);
                             }
                         }, year, month, day);
+                datePiker.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
                 datePiker.show();
             }
         });
@@ -133,16 +134,27 @@ public class ViewActivity extends AppCompatActivity {
     }
 
     public void updateTask(View view) {
-        String dueDate = task_dueDate.getText().toString();
-        taskObj.setDueDate(dueDate);
+        if (task_assignedTo.getText().toString().equals("None")){
+            Toast.makeText(this, "Please Assign Task First.", Toast.LENGTH_SHORT).show();
 
-        if(task_changeStatus.isEnabled()){
-            String status = task_changeStatus.getSelectedItem().toString();
-            taskObj.setStatus(status);
+        }
+        else{
+            String dueDate = task_dueDate.getText().toString();
+            taskObj.setDueDate(dueDate);
+
+            if(task_changeStatus.isEnabled()){
+                String status = task_changeStatus.getSelectedItem().toString();
+                taskObj.setStatus(status);
+
+                dbRef.child("Notification").push().setValue(new Notification(taskObj.getCreatedBy(), mAuth.getCurrentUser().getEmail(), status));
+            }
+
+            dbRef.child("Tasks").child(id).setValue(taskObj);
+            startActivity(new Intent(ViewActivity.this, AllTasks.class));
+
         }
 
-        dbRef.child("Tasks").child(id).setValue(taskObj);
-        startActivity(new Intent(ViewActivity.this, AllTasks.class));
+
     }
 
     public void view_btn_changeStatus(View view) {
