@@ -14,7 +14,7 @@
             android:textSize="24dp"
             android:textColor="#FFF"
             android:background="@color/colorPrimaryDark"
-            android:padding="20dp"
+            android:padding="30dp"
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -268,7 +268,6 @@
                 android:textColor="#fff"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:enabled="false"
                 android:layout_marginBottom="5dp"/>
 
             <Button

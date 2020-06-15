@@ -148,10 +148,16 @@ public class ViewActivity extends AppCompatActivity {
      * @param view
      */
     public void doThis(View view) {
-        taskObj.setAssignedTo(mAuth.getCurrentUser().getEmail());
-        dbRef.child("Tasks").child(id).setValue(taskObj);
-        startActivity(new Intent(ViewActivity.this, dashboard.class));
-        Toast.makeText(this, "Task has been assigned to you.", Toast.LENGTH_SHORT).show();
+        if (task_assignedTo.getText().toString().equals("None")){
+            taskObj.setAssignedTo(mAuth.getCurrentUser().getEmail());
+            dbRef.child("Tasks").child(id).setValue(taskObj);
+            startActivity(new Intent(ViewActivity.this, dashboard.class));
+            Toast.makeText(this, "Task has been assigned to you.", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(this, "Task is Already Assigned", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     /**

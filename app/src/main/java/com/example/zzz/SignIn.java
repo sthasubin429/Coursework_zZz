@@ -109,6 +109,7 @@ public class SignIn extends AppCompatActivity {
                                             if (task.isSuccessful()) {
                                                 Toast.makeText(SignIn.this, "Sign up Sucess", Toast.LENGTH_SHORT).show();
                                                 startActivity(new Intent(SignIn.this, dashboard.class));
+                                                finish();
                                             }
                                         }
                                     });
