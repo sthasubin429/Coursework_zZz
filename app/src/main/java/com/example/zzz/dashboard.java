@@ -50,7 +50,7 @@ public class dashboard extends AppCompatActivity {
          * checks if any user is logged in
          * If no user is logged in redirects to sign in page or main activity
          */
-        if(mAuth.getCurrentUser() == null  ){
+        if (mAuth.getCurrentUser() == null) {
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
             finish();
         }
@@ -63,10 +63,9 @@ public class dashboard extends AppCompatActivity {
 
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser == null  ){
+        if (currentUser == null) {
             startActivity(new Intent(this, MainActivity.class));
-        }
-        else{
+        } else {
             String name = currentUser.getDisplayName().toString();
             String email = currentUser.getEmail().toString();
 
@@ -78,6 +77,7 @@ public class dashboard extends AppCompatActivity {
 
     /**
      * Method to Signout current user
+     *
      * @param view
      */
     public void signOut(View view) {
@@ -90,6 +90,7 @@ public class dashboard extends AppCompatActivity {
 
     /**
      * Stars create Task Activity
+     *
      * @param view
      */
     public void openCreateTask(View view) {
@@ -98,6 +99,7 @@ public class dashboard extends AppCompatActivity {
 
     /**
      * Starts all task Activity
+     *
      * @param view
      */
     public void openAllTasks(View view) {
@@ -107,6 +109,7 @@ public class dashboard extends AppCompatActivity {
 
     /**
      * Starts My task Activity
+     *
      * @param view
      */
     public void openMyTask(View view) {
@@ -115,9 +118,11 @@ public class dashboard extends AppCompatActivity {
 
     /**
      * Starts history activiy
+     *
      * @param view
      */
     public void openHistory(View view) {
         startActivity(new Intent(getApplicationContext(), History.class));
     }
+}
 
