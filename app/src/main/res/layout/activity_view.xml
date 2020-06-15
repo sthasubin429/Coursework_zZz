@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".dashboard">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:context=".dashboard">
 
         <TextView
             android:id="@+id/pageHead"
@@ -21,35 +17,40 @@
             android:padding="20dp"
             android:gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"/>
+            android:layout_height="wrap_content"/>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:layout_below="@id/pageHead">
 
         <LinearLayout
             android:orientation="vertical"
             android:paddingRight="20dp"
             android:paddingLeft="20dp"
-            android:paddingBottom="10dp"
+            android:paddingBottom="30dp"
+            android:paddingTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Task ID"
-                    android:textColor="#000"
-                    android:textSize="20dp" />
+                    android:textColor="#000"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Default ID"
-                    android:id="@+id/view_task_id"
-                    android:textSize="16dp" />
+                    android:id="@+id/view_task_id"/>
 
             </LinearLayout>
 
@@ -63,14 +64,19 @@
                     android:layout_height="wrap_content"
                     android:text="Task title"
                     android:textColor="#000"
-                    android:textSize="20dp"/>
+                    android:textSize="16dp"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Title"
                     android:id="@+id/view_task_name"
-                    android:textSize="16dp" />
+                    android:textSize="16dp"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:background="#4BF1F1F1"/>
 
             </LinearLayout>
 
@@ -84,13 +90,18 @@
                     android:layout_height="wrap_content"
                     android:text="Description"
                     android:textColor="#000"
-                    android:textSize="20dp" />
+                    android:textSize="16dp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Description"
                     android:id="@+id/view_task_description"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:background="#4BF1F1F1"
                     android:textSize="16dp" />
 
             </LinearLayout>
@@ -103,16 +114,21 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Created By"
+                    android:text="Created by"
                     android:textColor="#000"
-                    android:textSize="20dp" />
+                    android:textSize="16dp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Default Created By"
                     android:id="@+id/view_task_createdBy"
-                    android:textSize="16dp" />
+                    android:textSize="16dp"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:background="#4BF1F1F1"/>
 
             </LinearLayout>
 
@@ -126,7 +142,7 @@
                     android:layout_height="wrap_content"
                     android:text="Due Date: "
                     android:textColor="#000"
-                    android:textSize="20dp"
+                    android:textSize="16dp"
                     android:layout_weight="0.7"/>
 
                 <EditText
@@ -150,7 +166,7 @@
                     android:layout_height="wrap_content"
                     android:text="Priority: "
                     android:textColor="#000"
-                    android:textSize="20dp"
+                    android:textSize="16dp"
                     android:layout_weight="0.7"/>
 
                 <TextView
@@ -179,7 +195,7 @@
                         android:layout_height="wrap_content"
                         android:text="Status: "
                         android:textColor="#000"
-                        android:textSize="20dp"
+                        android:textSize="16dp"
                         android:layout_weight="0.7"/>
 
                     <TextView
@@ -226,7 +242,7 @@
                     android:layout_height="wrap_content"
                     android:text="Assigned To"
                     android:textColor="#000"
-                    android:textSize="20dp"/>
+                    android:textSize="16dp"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -258,9 +274,9 @@
 
         </LinearLayout>
 
-    </LinearLayout>
+    </ScrollView>
 
-</ScrollView>
+</LinearLayout>
 
 
 
